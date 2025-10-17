@@ -1,15 +1,18 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Navigation mobile
+    // ===== MENU MOBILE =====
+    // Sélection des éléments du menu mobile
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
+    // Gestion du clic sur le menu hamburger
     hamburger.addEventListener('click', function() {
+        // Basculer la classe 'active' pour afficher/masquer le menu
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
     
-    // Fermer le menu mobile en cliquant sur un lien
+    // Fermer le menu mobile quand on clique sur un lien
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -18,49 +21,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Système d'onglets pour l'expérience
+    // ===== SYSTÈME D'ONGLETS =====
     const tabs = document.querySelectorAll('.tab');
     const tabPanels = document.querySelectorAll('.tab-panel');
     
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
+            // Récupérer l'ID de l'onglet cible
             const targetTab = this.getAttribute('data-tab');
             
-            // Retirer la classe active de tous les onglets
+            // Désactiver tous les onglets
             tabs.forEach(t => t.classList.remove('active'));
-            // Ajouter la classe active à l'onglet cliqué
-            this.classList.add('active');
-            
-            // Masquer tous les contenus d'onglets
             tabPanels.forEach(panel => panel.classList.remove('active'));
-            // Afficher le contenu de l'onglet cible
+            
+            // Activer l'onglet cliqué
+            this.classList.add('active');
             document.getElementById(targetTab).classList.add('active');
         });
     });
     
-    // Animation au défilement
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
+    // ===== ANIMATION AU DÉFILEMENT =====
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
+            // Ajouter une classe quand l'élément devient visible
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
             }
         });
-    }, observerOptions);
+    }, {
+        threshold: 0.1 // Déclencher quand 10% de l'élément est visible
+    });
     
-    // Observer les sections pour l'animation
+    // Observer toutes les sections
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
         observer.observe(section);
     });
     
-    // Animation de la barre de navigation au défilement
+    // ===== EFFET SUR LA NAVIGATION AU DÉFILEMENT =====
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
+        
+        // Réduire la navbar quand on scroll
         if (window.scrollY > 100) {
             navbar.style.padding = '10px 0';
             navbar.style.backgroundColor = 'rgba(10, 25, 47, 0.95)';
@@ -69,7 +71,4 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.backgroundColor = 'rgba(10, 25, 47, 0.9)';
         }
     });
-    
-    // Ajouter une classe pour l'animation CSS
-    document.body.classList.add('loaded');
 });

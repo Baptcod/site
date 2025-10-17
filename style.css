@@ -1,605 +1,584 @@
-/* style.css */
+
+/* 
+ ============================================
+ VARIABLES CSS
+ ============================================
+ Les variables permettent de stocker des valeurs réutilisables.
+ Si on veut changer la couleur principale, on la modifie ici une seule fois !
+*/
 :root {
-    --primary-color: #64ffda;
-    --secondary-color: #0a192f;
-    --light-color: #ccd6f6;
-    --dark-color: #8892b0;
-    --text-color: #e6f1ff;
-    --bg-color: #0a192f;
-    --card-bg: #112240;
-    --font-main: 'Inter', sans-serif;
+    --primary-color: #64ffda;      /* Couleur verte principale */
+    --secondary-color: #0a192f;    /* Fond bleu très foncé */
+    --light-color: #ccd6f6;        /* Texte clair */
+    --dark-color: #8892b0;         /* Texte secondaire (gris) */
+    --text-color: #e6f1ff;         /* Texte principal blanc */
+    --bg-color: #0a192f;           /* Couleur de fond du site */
+    --card-bg: #112240;            /* Fond des cartes (bleu moins foncé) */
 }
 
+/* 
+ ============================================
+ RÉINITIALISATION (RESET)
+ ============================================
+ On enlève les marges et paddings par défaut des navigateurs
+ pour avoir un contrôle total sur l'apparence.
+*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0;                     /* Supprime toutes les marges externes */
+    padding: 0;                    /* Supprime tous les paddings internes */
+    box-sizing: border-box;        /* Inclut padding et border dans la largeur/hauteur */
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* 
+ ============================================
+ STYLES GÉNÉRAUX DU BODY
+ ============================================
+ Styles de base qui s'appliquent à toute la page
+*/
 body {
-    font-family: var(--font-main);
-    background-color: var(--bg-color);
-    color: var(--light-color);
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;  /* Police moderne et lisible */
+    background-color: var(--bg-color); /* Utilise la variable de fond */
+    color: var(--light-color);         /* Utilise la variable de texte clair */
+    line-height: 1.6;                  /* Espacement entre les lignes */
+    padding-top: 80px;                 /* Espace pour la navigation fixe */
 }
 
+/* 
+ ============================================
+ CONTAINER PRINCIPAL
+ ============================================
+ Centre le contenu et limite la largeur maximale
+ sur les grands écrans
+*/
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px;    /* Largeur maximale du contenu */
+    margin: 0 auto;       /* Centre horizontalement */
+    padding: 0 20px;      /* Espacement gauche/droite */
 }
 
-/* Navigation */
+/* 
+ ============================================
+ NAVIGATION
+ ============================================
+ Barre de navigation fixe en haut de la page
+*/
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(10, 25, 47, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 20px 0;
-    transition: all 0.3s ease;
+    position: fixed;      /* Reste en place quand on scroll */
+    top: 0;               /* Collée en haut */
+    width: 100%;          /* Prend toute la largeur */
+    background-color: var(--secondary-color); /* Fond bleu foncé */
+    padding: 20px 0;      /* Espacement haut/bas */
+    z-index: 1000;        /* S'assure d'être au-dessus des autres éléments */
+    border-bottom: 1px solid var(--dark-color); /* Ligne de séparation */
 }
 
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: flex;                    /* Disposition flexible */
+    justify-content: space-between;   /* Logo à gauche, menu à droite */
+    align-items: center;              /* Centre verticalement */
+    max-width: 1200px;                /* Même largeur que .container */
+    margin: 0 auto;                   /* Centrage */
+    padding: 0 20px;                  /* Espacement intérieur */
 }
 
+/* Logo du site */
 .nav-logo a {
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-decoration: none;
+    color: var(--primary-color);  /* Texte vert */
+    font-weight: 700;             /* Texte en gras */
+    font-size: 1.5rem;            /* Taille du texte */
+    text-decoration: none;        /* Pas de soulignement */
 }
 
+/* Conteneur du menu */
 .nav-menu {
-    display: flex;
-    align-items: center;
+    display: flex;          /* Disposition flexible */
+    align-items: center;    /* Centre verticalement */
 }
 
+/* Liste des liens de navigation */
 .nav-list {
-    display: flex;
-    list-style: none;
+    display: flex;          /* Affiche les liens en ligne */
+    list-style: none;       /* Supprime les puces */
+    gap: 30px;              /* Espace entre les liens */
 }
 
-.nav-item {
-    margin-left: 30px;
-}
-
+/* Liens de navigation */
 .nav-link {
-    color: var(--light-color);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
+    color: var(--light-color);      /* Couleur de texte */
+    text-decoration: none;          /* Pas de soulignement */
+    transition: color 0.3s ease;    /* Animation fluide de la couleur */
+    font-weight: 500;               /* Poids de police moyen */
 }
 
-.nav-link span {
-    color: var(--primary-color);
-    margin-right: 5px;
-    font-size: 0.8rem;
-}
-
+/* Effet au survol des liens */
 .nav-link:hover {
-    color: var(--primary-color);
+    color: var(--primary-color);    /* Devient vert au survol */
 }
 
+/* Bouton Télécharger CV */
 .btn-resume {
-    margin-left: 30px;
-    padding: 10px 20px;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+    margin-left: 30px;              /* Espace depuis les liens */
+    padding: 12px 24px;             /* Espacement intérieur */
+    border: 1px solid var(--primary-color); /* Bordure verte */
+    color: var(--primary-color);    /* Texte vert */
+    text-decoration: none;          /* Pas de soulignement */
+    border-radius: 4px;             /* Coins arrondis */
+    transition: all 0.3s ease;      /* Animation fluide */
+    font-weight: 500;               /* Poids de police moyen */
 }
 
+/* Effet au survol du bouton */
 .btn-resume:hover {
-    background-color: rgba(100, 255, 218, 0.1);
+    background-color: rgba(100, 255, 218, 0.1); /* Fond vert très transparent */
+    transform: translateY(-2px);    /* Légère remontée */
 }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 2px;
-    background-color: var(--primary-color);
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-/* Sections communes */
+/* 
+ ============================================
+ SECTIONS
+ ============================================
+ Styles communs à toutes les sections
+*/
 section {
-    padding: 100px 0;
+    padding: 80px 0;        /* Espacement vertical important */
+    min-height: 100vh;      /* Au moins la hauteur de l'écran */
 }
 
+/* En-tête de section (titre + ligne) */
 .section-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 50px;
+    display: flex;          /* Disposition flexible */
+    align-items: center;    /* Centre verticalement */
+    margin-bottom: 60px;    /* Espace sous l'en-tête */
 }
 
+/* Titre des sections */
 .section-header h2 {
-    font-size: 2rem;
-    color: var(--text-color);
-    white-space: nowrap;
-    margin-right: 20px;
+    font-size: 2rem;        /* Taille du texte */
+    color: var(--text-color); /* Couleur de texte */
+    white-space: nowrap;    /* Empêche le retour à la ligne */
+    margin-right: 20px;     /* Espace avant la ligne */
 }
 
+/* Chiffre dans le titre (01., 02., etc.) */
 .section-header h2 span {
-    color: var(--primary-color);
-    font-size: 1.5rem;
+    color: var(--primary-color); /* Couleur verte */
+    font-family: monospace;      /* Police à chasse fixe */
 }
 
+/* Ligne décorative à côté du titre */
 .line {
-    width: 100%;
-    height: 1px;
-    background-color: var(--dark-color);
-    margin-left: 20px;
+    flex: 1;                    /* Prend tout l'espace disponible */
+    height: 1px;                /* Épaisseur de la ligne */
+    background-color: var(--dark-color); /* Couleur grise */
+    margin-left: 20px;          /* Espace depuis le titre */
 }
 
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 80px;
-}
-
-.hero-greeting {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-}
-
-.hero-name {
-    font-size: 4rem;
-    color: var(--text-color);
-    margin-bottom: 10px;
-    line-height: 1.1;
-}
-
-.hero-title {
-    font-size: 3rem;
-    color: var(--dark-color);
-    margin-bottom: 30px;
-    line-height: 1.1;
-}
-
-.hero-description {
-    max-width: 540px;
-    color: var(--dark-color);
-    margin-bottom: 50px;
-    font-size: 1.1rem;
-}
-
-.btn-primary {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: rgba(100, 255, 218, 0.1);
-}
-
-/* About Section */
+/* 
+ ============================================
+ SECTION À PROPOS
+ ============================================
+*/
 .about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    align-items: center;
+    display: flex;          /* Disposition flexible */
+    gap: 60px;              /* Espace entre texte et éventuelle image */
+    align-items: flex-start; /* Aligne en haut */
+}
+
+/* Texte de la section À propos */
+.about-text {
+    flex: 2;                /* Prend 2 parts d'espace */
 }
 
 .about-text p {
-    margin-bottom: 20px;
-    color: var(--dark-color);
+    margin-bottom: 20px;    /* Espace entre paragraphes */
+    color: var(--dark-color); /* Couleur de texte secondaire */
+    font-size: 1.1rem;      /* Taille de texte légèrement augmentée */
+    line-height: 1.8;       /* Meilleure lisibilité */
 }
 
-.about-text span {
-    color: var(--primary-color);
-}
-
+/* Liste des compétences */
 .skills-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 20px;
+    display: grid;                  /* Grille CSS moderne */
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales */
+    gap: 20px;                      /* Espace entre colonnes */
+    margin-top: 30px;               /* Espace au-dessus */
 }
 
+/* Colonne de liste */
 .skills-list ul {
-    list-style: none;
+    list-style: none;       /* Supprime les puces */
 }
 
+/* Élément de compétence */
 .skills-list li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 10px;
-    color: var(--dark-color);
+    position: relative;     /* Permet de positionner la flèche */
+    padding-left: 25px;     /* Espace pour la flèche */
+    margin-bottom: 12px;    /* Espace entre les items */
+    color: var(--dark-color); /* Couleur de texte */
+    font-size: 0.95rem;     /* Taille légèrement réduite */
 }
 
+/* Flèche devant chaque compétence */
 .skills-list li:before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
+    content: "▹";           /* Caractère flèche */
+    position: absolute;      /* Position absolue dans l'item */
+    left: 0;                /* Alignée à gauche */
+    color: var(--primary-color); /* Couleur verte */
+    font-size: 1.1rem;      /* Taille légèrement augmentée */
 }
 
-.about-image {
-    display: flex;
-    justify-content: center;
-}
-
-.image-wrapper {
-    width: 300px;
-    height: 300px;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.image-wrapper:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--primary-color);
-    border-radius: 5px;
-    transform: translate(10px, 10px);
-    z-index: -1;
-    transition: all 0.3s ease;
-}
-
-.image-wrapper:hover:after {
-    transform: translate(5px, 5px);
-}
-
-.image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1);
-    transition: all 0.3s ease;
-}
-
-.image-wrapper:hover img {
-    filter: none;
-}
-
-/* Experience Section */
+/* 
+ ============================================
+ SECTION EXPÉRIENCE
+ ============================================
+*/
 .experience-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
+    display: flex;          /* Disposition flexible */
+    gap: 50px;              /* Espace entre onglets et contenu */
+    align-items: flex-start; /* Aligne en haut */
 }
 
+/* Conteneur des onglets (entreprises) */
 .tabs {
-    display: flex;
-    flex-direction: column;
+    display: flex;              /* Disposition flexible */
+    flex-direction: column;     /* Empile les onglets verticalement */
+    border-left: 2px solid var(--dark-color); /* Ligne verticale */
 }
 
+/* Style d'un onglet */
 .tab {
-    padding: 15px 20px;
-    background: transparent;
-    border: none;
-    border-left: 2px solid var(--dark-color);
-    color: var(--dark-color);
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: var(--font-main);
-    font-size: 0.9rem;
+    padding: 15px 25px;         /* Espacement intérieur */
+    background: transparent;    /* Fond transparent */
+    border: none;               /* Pas de bordure */
+    border-left: 2px solid transparent; /* Bordure gauche invisible */
+    color: var(--dark-color);   /* Texte gris */
+    text-align: left;           /* Alignement à gauche */
+    cursor: pointer;            /* Curseur main */
+    transition: all 0.3s ease;  /* Animation fluide */
+    font-family: inherit;       /* Hérite la police */
+    font-size: 0.95rem;         /* Taille de texte */
 }
 
+/* Onglet actif */
 .tab.active {
-    border-left: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    background-color: rgba(100, 255, 218, 0.1);
+    border-left: 2px solid var(--primary-color); /* Bordure gauche verte */
+    color: var(--primary-color); /* Texte vert */
+    background-color: rgba(100, 255, 218, 0.05); /* Fond très léger */
 }
 
+/* Effet au survol des onglets */
 .tab:hover {
-    color: var(--primary-color);
-    background-color: rgba(100, 255, 218, 0.05);
+    color: var(--primary-color);        /* Texte vert au survol */
+    background-color: rgba(100, 255, 218, 0.02); /* Fond très léger */
 }
 
+/* Conteneur du contenu des onglets */
 .tab-content {
-    padding: 10px 0;
+    flex: 1;                    /* Prend tout l'espace disponible */
+    padding: 10px 0;            /* Petit espacement vertical */
 }
 
+/* Panneau de contenu (caché par défaut) */
 .tab-panel {
-    display: none;
+    display: none;              /* Caché par défaut */
+    animation: fadeIn 0.5s ease; /* Animation d'apparition */
 }
 
+/* Panneau de contenu actif */
 .tab-panel.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
+    display: block;             /* Affiché quand actif */
 }
 
+/* Animation d'apparition */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+/* Titre du poste */
 .tab-panel h3 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 10px;
+    font-size: 1.4rem;          /* Taille du texte */
+    color: var(--text-color);   /* Couleur de texte */
+    margin-bottom: 8px;         /* Espace sous le titre */
 }
 
-.tab-panel h3 span {
-    color: var(--primary-color);
-}
-
+/* Date de l'expérience */
 .tab-panel .date {
-    color: var(--dark-color);
-    margin-bottom: 20px;
-    font-size: 0.9rem;
+    color: var(--primary-color); /* Texte vert */
+    margin-bottom: 20px;        /* Espace sous la date */
+    font-family: monospace;     /* Police à chasse fixe */
+    font-size: 0.9rem;          /* Taille réduite */
 }
 
+/* Liste des tâches/responsabilités */
 .tab-panel ul {
-    list-style: none;
+    list-style: none;           /* Supprime les puces */
 }
 
+/* Élément de liste */
 .tab-panel li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 10px;
-    color: var(--dark-color);
+    position: relative;         /* Pour positionner la flèche */
+    padding-left: 25px;         /* Espace pour la flèche */
+    margin-bottom: 12px;        /* Espace entre les items */
+    color: var(--dark-color);   /* Texte gris */
+    line-height: 1.6;           /* Meilleure lisibilité */
 }
 
+/* Flèche devant chaque tâche */
 .tab-panel li:before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
+    content: "▹";               /* Caractère flèche */
+    position: absolute;          /* Position absolue */
+    left: 0;                    /* Alignée à gauche */
+    color: var(--primary-color); /* Couleur verte */
 }
 
-/* Projects Section */
+/* 
+ ============================================
+ SECTION PROJETS
+ ============================================
+*/
 .projects-grid {
-    display: grid;
-    gap: 30px;
+    display: flex;              /* Disposition flexible */
+    flex-direction: column;     /* Empile les projets */
+    gap: 40px;                  /* Espace entre les projets */
 }
 
+/* Carte de projet individuelle */
 .project-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    background-color: var(--card-bg);
-    border-radius: 5px;
-    padding: 30px;
-    transition: all 0.3s ease;
+    display: flex;              /* Disposition flexible */
+    gap: 40px;                  /* Espace entre image et contenu */
+    background-color: var(--card-bg); /* Fond bleu foncé */
+    border-radius: 8px;         /* Coins arrondis */
+    padding: 40px;              /* Espacement intérieur */
+    transition: all 0.3s ease;  /* Animation fluide */
+    border: 1px solid rgba(100, 255, 218, 0.1); /* Bordure très subtile */
 }
 
+/* Effet de survol sur la carte */
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Légère remontée */
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7); /* Ombre portée */
 }
 
+/* Conteneur de l'image du projet */
 .project-image {
-    border-radius: 5px;
-    overflow: hidden;
-    height: 300px;
+    flex: 1;                    /* Prend 1 partie de l'espace */
+    border-radius: 6px;         /* Coins arrondis */
+    overflow: hidden;           /* Cache ce qui dépasse */
+    height: 300px;              /* Hauteur fixe */
 }
 
+/* Image du projet */
 .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    width: 100%;                /* Prend toute la largeur */
+    height: 100%;               /* Prend toute la hauteur */
+    object-fit: cover;          /* Recadre l'image pour remplir */
+    transition: transform 0.3s ease; /* Animation du zoom */
 }
 
+/* Zoom au survol de l'image */
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.05);     /* Légère augmentation */
 }
 
+/* Contenu texte du projet */
 .project-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex: 1;                    /* Prend 1 partie de l'espace */
+    display: flex;              /* Disposition flexible */
+    flex-direction: column;     /* Empile les éléments */
+    justify-content: center;     /* Centre verticalement */
 }
 
-.project-category {
-    color: var(--primary-color);
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-}
-
+/* Titre du projet */
 .project-title {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 15px;
+    font-size: 1.5rem;          /* Taille du texte */
+    color: var(--text-color);   /* Couleur de texte */
+    margin-bottom: 20px;        /* Espace sous le titre */
 }
 
+/* Description du projet */
 .project-description {
-    background-color: rgba(17, 34, 64, 0.7);
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    background-color: rgba(17, 34, 64, 0.5); /* Fond semi-transparent */
+    padding: 25px;              /* Espacement intérieur */
+    border-radius: 6px;         /* Coins arrondis */
+    margin-bottom: 25px;        /* Espace sous la description */
+    border-left: 2px solid var(--primary-color); /* Accent vert */
 }
 
+/* Texte de description */
 .project-description p {
-    color: var(--dark-color);
-    font-size: 0.9rem;
+    color: var(--dark-color);   /* Texte gris */
+    line-height: 1.7;           /* Meilleure lisibilité */
 }
 
+/* Liste des technologies utilisées */
 .project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin-bottom: 20px;
+    display: flex;              /* Disposition flexible */
+    flex-wrap: wrap;            /* Retour à la ligne si nécessaire */
+    list-style: none;           /* Supprime les puces */
+    margin-bottom: 25px;        /* Espace sous la liste */
+    gap: 12px;                  /* Espace entre les technologies */
 }
 
+/* Technologie individuelle */
 .project-tech li {
-    margin-right: 15px;
-    color: var(--dark-color);
-    font-size: 0.8rem;
+    color: var(--primary-color); /* Texte vert */
+    font-size: 0.85rem;         /* Taille réduite */
+    background-color: rgba(100, 255, 218, 0.1); /* Fond vert très transparent */
+    padding: 6px 12px;          /* Espacement intérieur */
+    border-radius: 4px;         /* Coins arrondis */
+    border: 1px solid rgba(100, 255, 218, 0.2); /* Bordure subtile */
 }
 
+/* Liens du projet (GitHub, démo) */
 .project-links {
-    display: flex;
+    display: flex;              /* Disposition flexible */
+    gap: 20px;                  /* Espace entre les icônes */
 }
 
+/* Lien individuel */
 .project-links a {
-    color: var(--text-color);
-    margin-right: 15px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    color: var(--text-color);   /* Icône blanche */
+    font-size: 1.3rem;          /* Taille des icônes */
+    transition: all 0.3s ease;  /* Animation de couleur et transformation */
+    text-decoration: none;      /* Pas de soulignement */
 }
 
+/* Effet au survol des liens */
 .project-links a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Icône verte au survol */
+    transform: translateY(-2px); /* Légère remontée */
 }
 
-/* Contact Section */
+/* 
+ ============================================
+ SECTION CONTACT
+ ============================================
+*/
 .contact-content {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+    text-align: center;         /* Centre le contenu */
+    max-width: 600px;           /* Limite la largeur */
+    margin: 0 auto;             /* Centre horizontalement */
 }
 
-.contact-content h3 {
-    font-size: 2rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
+/* Bouton principal de contact */
+.btn-primary {
+    display: inline-block;      /* Permet padding et margins */
+    padding: 16px 32px;         /* Espacement intérieur */
+    background-color: transparent; /* Fond transparent */
+    color: var(--primary-color); /* Texte vert */
+    border: 1px solid var(--primary-color); /* Bordure verte */
+    border-radius: 4px;         /* Coins arrondis */
+    text-decoration: none;      /* Pas de soulignement */
+    transition: all 0.3s ease;  /* Animation fluide */
+    font-size: 1rem;            /* Taille de texte */
+    font-weight: 500;           /* Poids de police moyen */
 }
 
-.contact-content p {
-    color: var(--dark-color);
-    margin-bottom: 40px;
+/* Effet au survol du bouton */
+.btn-primary:hover {
+    background-color: rgba(100, 255, 218, 0.1); /* Fond vert très transparent */
+    transform: translateY(-2px); /* Légère remontée */
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2); /* Ombre verte */
 }
 
-/* Footer */
+/* 
+ ============================================
+ FOOTER
+ ============================================
+*/
 .footer {
-    text-align: center;
-    padding: 50px 0 30px;
+    text-align: center;         /* Centre le contenu */
+    padding: 60px 0 40px;       /* Espacement vertical */
+    border-top: 1px solid var(--dark-color); /* Ligne de séparation */
+    margin-top: 60px;           /* Espace au-dessus */
 }
 
+/* Liens sociaux */
 .social-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    display: flex;              /* Disposition flexible */
+    justify-content: center;    /* Centre horizontalement */
+    margin-bottom: 25px;        /* Espace sous les liens */
+    gap: 30px;                  /* Espace entre les icônes */
 }
 
+/* Lien social individuel */
 .social-links a {
-    color: var(--text-color);
-    margin: 0 15px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    color: var(--text-color);   /* Icône blanche */
+    font-size: 1.4rem;          /* Taille des icônes */
+    transition: all 0.3s ease;  /* Animation de couleur et transformation */
+    text-decoration: none;      /* Pas de soulignement */
 }
 
+/* Effet au survol des liens sociaux */
 .social-links a:hover {
-    color: var(--primary-color);
+    color: var(--primary-color); /* Icône verte au survol */
+    transform: translateY(-3px); /* Légère remontée */
 }
 
+/* Texte du footer */
 .footer p {
-    color: var(--dark-color);
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    color: var(--dark-color);   /* Texte gris */
+    font-size: 0.9rem;          /* Taille réduite */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 70%;
-        height: calc(100vh - 70px);
-        background-color: var(--secondary-color);
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding-top: 50px;
-        transition: right 0.5s ease;
-    }
-    
-    .nav-menu.active {
-        right: 0;
-    }
-    
-    .nav-list {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-    
-    .nav-item {
-        margin: 15px 0;
-    }
-    
-    .hero-name {
-        font-size: 2.5rem;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .experience-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .tabs {
-        flex-direction: row;
-        overflow-x: auto;
-        margin-bottom: 30px;
-    }
-    
-    .tab {
-        border-left: none;
-        border-bottom: 2px solid var(--dark-color);
-        white-space: nowrap;
-    }
-    
-    .tab.active {
-        border-left: none;
-        border-bottom: 2px solid var(--primary-color);
-    }
-    
-    .project-card {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .line {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 10px;
+/* 
+ ============================================
+ ANIMATIONS ET EFFETS
+ ============================================
+ Effets subtils pour améliorer l'expérience utilisateur
+*/
+
+/* Animation d'apparition des sections */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: sectionFadeIn 0.8s ease forwards;
+}
+
+/* Délais d'animation pour chaque section */
+#apropos { animation-delay: 0.1s; }
+#experience { animation-delay: 0.2s; }
+#projets { animation-delay: 0.3s; }
+#contact { animation-delay: 0.4s; }
+
+@keyframes sectionFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+/* 
+ ============================================
+ NOTES POUR DÉBUTANTS
+ ============================================
+
+ 1. VARIABLES CSS : 
+    - Les variables (--primary-color, etc.) permettent de changer 
+      les couleurs facilement en un seul endroit
+
+ 2. FLEXBOX :
+    - display: flex → crée un conteneur flexible
+    - justify-content → aligne horizontalement
+    - align-items → aligne verticalement
+    - gap → espace entre les éléments
+
+ 3. TRANSITIONS :
+    - transition: all 0.3s ease → animation fluide de 0.3 secondes
+    - :hover → état au survol de la souris
+
+ 4. UNITES :
+    - px → pixels (fixe)
+    - rem → relatif à la taille de base de la police
+    - % → pourcentage
+    - vh/vw → pourcentage de la hauteur/largeur de la fenêtre
+
+ 5. POSITION :
+    - relative → position normale
+    - absolute → par rapport au parent relatif le plus proche
+    - fixed → par rapport à la fenêtre (reste en place au scroll)
+
+ 6. COULEURS RGBA :
+    - rgba(100, 255, 218, 0.1) → vert avec 10% de transparence
+*/

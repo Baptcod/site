@@ -2,28 +2,38 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <!-- Viewport pour le responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
+    <!-- Lien vers la feuille de style externe -->
     <link rel="stylesheet" href="style.css">
+    <!-- Police Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icônes Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation principale  -->
     <nav class="navbar">
         <div class="nav-container">
+            <!-- Logo du site -->
             <div class="nav-logo">
                 <a href="#accueil">MonPortfolio</a>
             </div>
+            
+            <!-- Menu de navigation avec liste non ordonnée -->
             <div class="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#apropos" class="nav-link"><span>01.</span> À propos</a></li>
-                    <li class="nav-item"><a href="#experience" class="nav-link"><span>02.</span> Expérience</a></li>
-                    <li class="nav-item"><a href="#projets" class="nav-link"><span>03.</span> Projets</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link"><span>04.</span> Contact</a></li>
+                    <li class="nav-item"><a href="#apropos" class="nav-link">À propos</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Expérience</a></li>
+                    <li class="nav-item"><a href="#projets" class="nav-link">Projets</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                <!-- Bouton de téléchargement CV -->
                 <a href="#" class="btn-resume">CV</a>
             </div>
+            
+            <!-- Menu hamburger pour mobile -->
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -32,106 +42,82 @@
         </div>
     </nav>
 
-    <!-- Section Hero -->
-    <section id="accueil" class="hero">
-        <div class="container">
-            <p class="hero-greeting">Bonjour, je m'appelle</p>
-            <h1 class="hero-name">Alexandre Martin.</h1>
-            <h2 class="hero-title">Je construis des expériences digitales.</h2>
-            <p class="hero-description">
-                Je suis un développeur full-stack spécialisé dans la création d'applications web exceptionnelles. 
-                Actuellement, je me concentre sur la création de solutions accessibles et centrées sur l'utilisateur.
-            </p>
-            <a href="#projets" class="btn-primary">Découvrez mes projets !</a>
-        </div>
-    </section>
-
     <!-- Section À propos -->
     <section id="apropos" class="about">
         <div class="container">
+            <!-- En-tête de section avec numéro -->
             <div class="section-header">
                 <h2><span>01.</span> À propos de moi</h2>
                 <div class="line"></div>
             </div>
+            
             <div class="about-content">
                 <div class="about-text">
-                    <p>
-                        Bonjour ! Je m'appelle Alexandre et j'aime créer des choses qui vivent sur Internet. 
-                        Mon intérêt pour le développement web a commencé en 2018 quand j'ai décidé de créer 
-                        mon premier site web — cela m'a enseigné beaucoup sur HTML & CSS !
-                    </p>
-                    <p>
-                        Aujourd'hui, j'ai le privilège de travailler en tant que <span>développeur full-stack</span> 
-                        dans une agence digitale où je participe à la création d'applications web modernes 
-                        pour divers clients.
-                    </p>
-                    <p>
-                        Voici quelques technologies avec lesquelles j'ai travaillé récemment :
-                    </p>
+                    <!-- Paragraphe de présentation -->
+                    <p>Étudiant en BTS SIO (Services Informatiques aux Organisations)</p>
+                    
+                    
+                    <!-- Liste de compétences avec 2 colonnes -->
                     <div class="skills-list">
                         <ul>
-                            <li>JavaScript (ES6+)</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript</li>
                             <li>React</li>
-                            <li>Node.js</li>
                         </ul>
-                        <ul>
-                            <li>TypeScript</li>
-                            <li>Vue.js</li>
-                            <li>MongoDB</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Alexandre Martin">
+                        
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Expérience -->
+    <!-- Section Expérience professionnelle -->
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-header">
                 <h2><span>02.</span> Mon expérience</h2>
                 <div class="line"></div>
             </div>
+            
+            <!-- Système d'onglets pour les expériences -->
             <div class="experience-content">
                 <div class="tabs">
-                    <button class="tab active" data-tab="tab1">Agence DigitalSoft</button>
-                    <button class="tab" data-tab="tab2">Startup TechVision</button>
-                    <button class="tab" data-tab="tab3">Freelance</button>
+                    <!-- Boutons des onglets -->
+                    <button class="tab active" data-tab="tab1">Groupe Carso</button>
+                    <button class="tab" data-tab="tab2">Laboratoire CBTP</button>
+                    <button class="tab" data-tab="tab3">Extratex</button>
                 </div>
+                
+                <!-- Contenu des onglets -->
                 <div class="tab-content">
+                    <!-- Premier onglet actif par défaut -->
                     <div id="tab1" class="tab-panel active">
-                        <h3>Développeur Full-Stack <span>@ DigitalSoft</span></h3>
-                        <p class="date">Avril 2021 - Présent</p>
+                        <h3>Technicien informatique</h3>
+                        <p class="date">Août 2024 - Présent</p>
+                        <!-- Liste des missions -->
                         <ul>
-                            <li>Développement et maintenance d'applications web pour des clients variés</li>
-                            <li>Collaboration avec les designers pour créer des interfaces utilisateur intuitives</li>
-                            <li>Optimisation des performances et de l'accessibilité des applications</li>
-                            <li>Mise en place de processus CI/CD pour améliorer le déploiement</li>
+                            <li>Support technique aux utilisateurs</li>
+                            <li>Gestion des comptes Active Directory</li>
+                            <li>Déploiement et maintenance des postes</li>
                         </ul>
                     </div>
+                    
                     <div id="tab2" class="tab-panel">
-                        <h3>Développeur Frontend <span>@ TechVision</span></h3>
-                        <p class="date">Septembre 2019 - Mars 2021</p>
+                        <h3>Assistant technique</h3>
+                        <p class="date">Octobre 2019 - Mars 2021</p>
                         <ul>
-                            <li>Développement de l'interface utilisateur de la plateforme principale</li>
-                            <li>Implémentation de composants réutilisables avec React et Vue.js</li>
-                            <li>Collaboration avec l'équipe backend pour l'intégration des API</li>
-                            <li>Tests unitaires et d'intégration pour assurer la qualité du code</li>
+                            <li>Automatisation de processus avec Excel</li>
+                            <li>Analyse de données techniques</li>
                         </ul>
                     </div>
+                    
                     <div id="tab3" class="tab-panel">
-                        <h3>Développeur Web Freelance</h3>
+                        <h3>Technicien R&D</h3>
                         <p class="date">Janvier 2018 - Août 2019</p>
                         <ul>
-                            <li>Création de sites web sur mesure pour petites entreprises</li>
-                            <li>Consultation et conseils sur les stratégies digitales</li>
-                            <li>Refonte de sites existants pour améliorer l'UX et le référencement</li>
-                            <li>Formation des clients à l'utilisation de leurs nouveaux sites</li>
+                            <li>Optimisation des procédés d'extraction</li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -139,80 +125,46 @@
         </div>
     </section>
 
-    <!-- Section Projets -->
+    <!-- Section Projets réalisés -->
     <section id="projets" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2><span>03.</span> Quelques projets</h2>
+                <h2><span>03.</span> Mes projets</h2>
                 <div class="line"></div>
             </div>
+            
+            <!-- Grille de projets avec Flexbox -->
             <div class="projects-grid">
+                <!-- Carte de projet individuelle -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Projet E-commerce">
+                        <!-- Image du projet depuis Unsplash -->
+                        <img src="img/projet.jpg" alt="Projet Windows">
                     </div>
+                    
                     <div class="project-content">
-                        <p class="project-category">Projet en vedette</p>
-                        <h3 class="project-title">Plateforme E-commerce</h3>
+                        <h3 class="project-title">Mise à jour système Windows</h3>
+                        
+                        <!-- Description du projet -->
                         <div class="project-description">
-                            <p>Une plateforme e-commerce complète développée avec React, Node.js et MongoDB. 
-                            Inclut un système de paiement, gestion des stocks et tableau de bord administrateur.</p>
+                            <p>Optimisation et déploiement d'images Windows pour entreprise</p>
                         </div>
+                        
+                        <!-- Liste des technologies utilisées -->
                         <ul class="project-tech">
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>MongoDB</li>
-                            <li>Stripe API</li>
+                            <li>Windows</li>
+                            <li>PowerShell</li>
+                            <li>Active Directory</li>
                         </ul>
+                        
+                        <!-- Liens vers le code et la démo -->
                         <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Application de Gestion">
-                    </div>
-                    <div class="project-content">
-                        <p class="project-category">Projet en vedette</p>
-                        <h3 class="project-title">Application de Gestion de Projets</h3>
-                        <div class="project-description">
-                            <p>Une application web permettant aux équipes de collaborer sur des projets avec 
-                            suivi des tâches, calendrier partagé et messagerie intégrée.</p>
-                        </div>
-                        <ul class="project-tech">
-                            <li>Vue.js</li>
-                            <li>Firebase</li>
-                            <li>Vuex</li>
-                            <li>SCSS</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Application Météo">
-                    </div>
-                    <div class="project-content">
-                        <p class="project-category">Projet personnel</p>
-                        <h3 class="project-title">Application Météo Interactive</h3>
-                        <div class="project-description">
-                            <p>Une application météo avec visualisations interactives, prévisions détaillées 
-                            et géolocalisation. Design moderne et expérience utilisateur fluide.</p>
-                        </div>
-                        <ul class="project-tech">
-                            <li>JavaScript</li>
-                            <li>API REST</li>
-                            <li>Chart.js</li>
-                            <li>CSS3</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" aria-label="Code source GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" aria-label="Voir la démo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -224,35 +176,35 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2><span>04.</span> Prenons contact</h2>
+                <h2><span>04.</span> Contact</h2>
                 <div class="line"></div>
             </div>
+            
             <div class="contact-content">
-                <h3>Travaillons ensemble</h3>
-                <p>
-                    Bien que je ne sois pas actuellement à la recherche de nouvelles opportunités, 
-                    ma boîte de réception est toujours ouverte. Que vous ayez une question ou 
-                    simplement envie de dire bonjour, je ferai de mon mieux pour vous répondre !
-                </p>
-                <a href="mailto:contact@example.com" class="btn-primary">Dire Bonjour</a>
+                <!-- Lien mailto pour ouvrir le client email -->
+                <a href="mailto:contact@example.com" class="btn-primary">
+                    Envoyer un message
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Pied de page -->
     <footer class="footer">
         <div class="container">
+            <!-- Liens vers les réseaux sociaux -->
             <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
-            <p>Conçu et développé par Alexandre Martin</p>
-            <p class="copyright">© 2023 Tous droits réservés</p>
+            
+            <!-- Copyright -->
+            <p>© 2024 - Développé avec HTML, CSS et JavaScript</p>
         </div>
     </footer>
 
+    <!-- Script JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
